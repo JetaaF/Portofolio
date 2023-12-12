@@ -3,12 +3,53 @@
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.text-light {
+    color: black;
+}
+
+
+.dark .text-light,
+.text-dark {
+    color: white;
+}
+
+body {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    scrollbar-width: thin;
+    scrollbar-color: blue;
+}
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: blue;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 html{
     scroll-behavior: smooth;
 }
+
+
 .mode {
-    width: 100%;
-    height: 4em;
+
+
     /* background-color: aqua; */
     z-index: 200;
 }
@@ -40,30 +81,45 @@ li a{
     color: #000;
 }
 li a:hover{
-    color: #cbb862;
+    color: #000000;
 }
 li a::after{
     color: #CBB854;
     text-emphasis: filled double-circle #ffb703;
 }
-header{
-    position: fixed;
-    /* background-color: aqua; */
-    width: 100%;
-    height: 4.5em;
+nav ul {
+    list-style: none;
     display: flex;
-    align-items: center;
-    background-color: transparent;
 }
-/* .header{
-    position: fixed;
-    background-color: aqua;
-    width: 100vw;
-    height: 4.5em;
-    background-color: rgba(255, 255, 255);
-    filter: blur(7px);
-    z-index: 100;
-} */
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000000;
+    position: relative;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #c7ab4d;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
 #home{
     width: 100%;
     height: 53em;

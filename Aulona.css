@@ -3,11 +3,42 @@
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* Qekjo u shtu */
+body {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    scrollbar-width: thin;
+    scrollbar-color: #2f2a33 #f1f1f1;
+}
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #0f3dc7;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 html{
     scroll-behavior: smooth;
 }
+
 .mode {
-    width: 100%;
+
     height: 4em;
     /* background-color: aqua; */
     z-index: 200;
@@ -40,30 +71,65 @@ li a{
     color: #000;
 }
 li a:hover{
-    color: #cbb862;
+    color: black;
 }
 li a::after{
     color: #CBB854;
     text-emphasis: filled double-circle #ffb703;
 }
-header{
-    position: fixed;
-    /* background-color: aqua; */
-    width: 100%;
-    height: 4.5em;
+
+/* Qekjo u shtu */
+header {
+    color: white;
+    padding: 1em;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    background-color: transparent;
 }
-/* .header{
-    position: fixed;
-    background-color: aqua;
-    width: 100vw;
-    height: 4.5em;
-    background-color: rgba(255, 255, 255);
-    filter: blur(7px);
-    z-index: 100;
-} */
+
+.text-light {
+    color: black;
+}
+
+
+.dark .text-light,
+.text-dark {
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000000;
+    position: relative;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #c7ab4d;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
 #home{
     width: 100%;
     height: 53em;
@@ -154,39 +220,37 @@ ul li{
 span{
     color: #44bae8;
 }
-.icons{
-    width: 22em;
-    height: 6em;
+.icons {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-img.ic{
-    width: 4em;
-    height: 4em;
-    border-radius: 0;
-    bottom: 0;
-    padding: 0;
+    justify-content: center;
 }
 
+.ic {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
+.icon-link {
+    text-decoration: none;
+}
 
+/* Add a cool hover effect */
+#github:hover .ic {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #24292e; /* GitHub blue shadow color */
+}
 
+#instagram:hover .ic {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #e1306c; /* Instagram pink shadow color */
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#facebook:hover .ic {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #1da1f2; /* Facebook blue shadow color */
+}
 
 #education{
     margin-top: 14em;
